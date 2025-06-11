@@ -37,7 +37,9 @@ def calculate_demographic_data(print_data=True):
     rich_percentage = ((((df['hours-per-week'] == 1) & (df['salary'] == '>50K')).sum())*(100))/(num_min_workers)
 
     # What country has the highest percentage of people that earn >50K?
-    highest_earning_country = None
+    num_country_highest_salary = df[df['salary'] == '>50K']['native-country'].value_counts() #Countries with highest people earn >50k
+    
+    highest_earning_country = None 
     highest_earning_country_percentage = None
 
     # Identify the most popular occupation for those who earn >50K in India.
